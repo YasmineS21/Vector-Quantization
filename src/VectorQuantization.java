@@ -15,11 +15,11 @@ public class VectorQuantization {
         int imgHeight = img.getHeight();
         int imgWidth = img.getWidth();
 
-        // 1-divide image into blocks (lama shghalt mokhy w hawelt akhodha fpixel matrix tafah ofc)
+        // 1-divide image into blocks
         List<int[][]> Blocks = divideImgIntoBlocks(img, blockHeight,blockWidth);
 
         // 2-get the average block
-        // 3-LBG splitting (LBG => Linde-Buzo-Gray >:/)
+        // 3-LBG splitting
         // 4-get codebook (assign each block to closest block, get avg, split, assign, etc)
         List<int[][]> CodeBook = generateCodeBook(getAvgBlock(Blocks), codeBookSize, Blocks);
 
@@ -105,8 +105,8 @@ public class VectorQuantization {
     }
 
     private List<List<int[][]>> assignBlocksToAvgBlock(List<int[][]> Blocks, List<int[][]> currentCodebook) {
-        List<List<int[][]>> collectionOfBlocks = new ArrayList<>();
-        for (int i = 0; i < currentCodebook.size(); i++) { //codebook of index 0, index0 feeh list of blocks taba3o
+        List<List<int[][]>> collectionOfBlocks = new ArrayList<>(); //idx = num of codebook,has list of blocks
+        for (int i = 0; i < currentCodebook.size(); i++) {
             collectionOfBlocks.add(new ArrayList<>());
             //initialize
         }
@@ -129,7 +129,7 @@ public class VectorQuantization {
                 idxOfMinDistance = i;
             }
         }
-        return idxOfMinDistance;
+        return idxOfMinDistance; //idx of min codeblock to that block
     }
 
     private double calculateDistance(int[][] block, int[][] codebookBlock) {
@@ -249,6 +249,7 @@ public class VectorQuantization {
         System.out.println("Compression (Binary) completed successfully!");
     }
 
+    //=========>DECOMPRESSION // RECONSTRUCTION <============\\
     private ReconstructionData readFromTextFile(String inputFile) throws IOException {
         try (BufferedReader reader = new BufferedReader(new FileReader(inputFile))) {
             int imgHeight = Integer.parseInt(reader.readLine().split(": ")[1]);

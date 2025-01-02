@@ -47,25 +47,26 @@ public class Main {
         vq.compress("images/woman.png", "compressed_data_woman.txt", blockHeight,blockWidth, codebookSize);
         vq.reconstruct("compressed_data_woman.txt", "reconstructed_woman.png");
 
+        //compression output in binary file
+        vq.compress("images/tree.png", "compressed_data_tree.bin", blockHeight,blockWidth, codebookSize);
+        vq.reconstruct("compressed_data_tree.bin", "reconstructed_tree.png");
 
         //compression output in binary file
-        vq.compress("images/messi.png", "compressed_data_messi.bin", blockHeight,blockWidth, codebookSize);
-        vq.reconstruct("compressed_data_messi.bin", "reconstructed_messi.png");
-
+//        vq.compress("images/messi.png", "compressed_data_messi.bin", blockHeight,blockWidth, codebookSize);
+//        vq.reconstruct("compressed_data_messi.bin", "reconstructed_messi.png");
+//
 //        //compression output in text file
 //        vq.compress("images/lion.png", "compressed_data_lion.txt", blockHeight,blockWidth, codebookSize);
 //        vq.reconstruct("compressed_data_lion.txt", "reconstructed_lion.png");
-//
+
 //        //compression output in binary file
 //        vq.compress("images/butterfly.png", "compressed_data_butterfly.bin", blockHeight,blockWidth, codebookSize);
 //        vq.reconstruct("compressed_data_butterfly.bin", "reconstructed_butterfly.png");
-//
+
 //        //compression output in text file
 //        vq.compress("images/city.png", "compressed_data_city.txt", blockHeight,blockWidth, codebookSize);
 //        vq.reconstruct("compressed_data_city.txt", "reconstructed_city.png");
-//
-//        //compression output in binary file
-//        vq.compress("images/tree.png", "compressed_data_tree.bin", blockHeight,blockWidth, codebookSize);
-//        vq.reconstruct("compressed_data_tree.bin", "reconstructed_tree.png");
+
+
     }
 }

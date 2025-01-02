@@ -1,2 +1,2 @@
-Block Size: 5x5
-Codebook Size: 256
+Block Size: 4
+Codebook Size: 4
